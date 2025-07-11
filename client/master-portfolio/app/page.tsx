@@ -1,9 +1,10 @@
 import Hero from "@/src/blocks/hero";
+import RadiantBackground from "@/src/blocks/radiance";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8">
+    <RadiantBackground>
       <Hero />
-    </div>
+    </RadiantBackground>
   );
 }
