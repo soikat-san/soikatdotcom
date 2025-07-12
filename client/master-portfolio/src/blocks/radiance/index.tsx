@@ -1,5 +1,5 @@
 import React from "react";
-import Iridescence from "@/src/components/reactbits/Backgrounds/Iridescence/Iridescence";
+import ControlledBrightness from "./bright";
 
 interface RadiantBackgroundProps {
   children: React.ReactNode;
@@ -7,17 +7,12 @@ interface RadiantBackgroundProps {
 
 const RadiantBackground: React.FC<RadiantBackgroundProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen p-5">
       <div className="fixed inset-0 w-full h-full z-0">
-        <Iridescence
-          color={[1, 1, 1]}
-          mouseReact={true}
-          amplitude={0.1}
-          speed={1.0}
-        />
+        <ControlledBrightness />
       </div>
 
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 rounded-4xl min-h-screen">{children}</div>
     </div>
   );
 };

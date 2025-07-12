@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import HydrationWrapper from "@/lib/hydration";
+import Toggle from "@/src/components/theme/toggle";
+import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/src/components/theme/theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +26,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          enableSystem
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+        >
+          <HydrationWrapper>
+            <div className="fixed top-0 right-0 z-[9999]">
+              <Toggle />
+            </div>
+          </HydrationWrapper>
+
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
