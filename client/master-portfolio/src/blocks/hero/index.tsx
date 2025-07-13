@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
+import { useTheme } from "next-themes";
 import ShinyText from "@/src/components/reactbits/TextAnimations/ShinyText/ShinyText";
 import TextPressure from "@/src/components/reactbits/TextAnimations/TextPressure/TextPressure";
 import GradientText from "@/src/components/reactbits/TextAnimations/GradientText/GradientText";
-import { useTheme } from "next-themes";
 
 const Hero: React.FC = () => {
   const { theme } = useTheme();

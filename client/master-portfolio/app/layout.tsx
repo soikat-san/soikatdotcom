@@ -44,9 +44,8 @@ export default function RootLayout({
             <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[9998]">
               <Docked />
             </div>
+            {children}
           </HydrationWrapper>
-
-          {children}
         </ThemeProvider>
       </body>
     </html>
