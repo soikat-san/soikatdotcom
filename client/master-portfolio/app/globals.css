@@ -133,3 +133,34 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+/* Shine animation for ShinyText component */
+@keyframes shine {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: -100%;
+    }
+}
+
+/* Gradient animation for GradientText component */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    animation: gradient 8s linear infinite;
+}
+
+.animate-shine {
+    animation: shine 5s linear infinite;
+}

@@ -7,7 +7,7 @@ interface RadiantBackgroundProps {
 
 const RadiantBackground: React.FC<RadiantBackgroundProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen p-5">
+    <div className="relative min-h-screen py-2 px-4">
       <div className="fixed inset-0 w-full h-full z-0">
         <ControlledBrightness />
       </div>
