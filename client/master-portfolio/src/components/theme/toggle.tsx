@@ -10,7 +10,7 @@ const Toggle: React.FC = () => {
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
-  console.log(theme, "--");
+
   return (
     <div
       className="w-[100px] h-[100px] flex items-center justify-center cursor-pointer"
@@ -26,7 +26,7 @@ const Toggle: React.FC = () => {
         {theme === "dark" ? (
           <Sun className="w-10 h-10 text-white" />
         ) : (
-          <Moon className="w-10 h-10 text-black" />
+          <Moon className="w-10 h-10 text-white" />
         )}
       </div>
     </div>

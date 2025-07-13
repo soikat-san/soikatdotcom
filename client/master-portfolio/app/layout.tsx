@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import HydrationWrapper from "@/lib/hydration";
 import Toggle from "@/src/components/theme/toggle";
+import Docked from "@/src/blocks/dock";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/src/components/theme/theme";
 
@@ -39,6 +40,9 @@ export default function RootLayout({
           <HydrationWrapper>
             <div className="fixed top-0 right-0 z-[9999]">
               <Toggle />
+            </div>
+            <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[9998]">
+              <Docked />
             </div>
           </HydrationWrapper>
 
