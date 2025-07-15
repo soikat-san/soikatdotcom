@@ -41,7 +41,8 @@ export default function RootLayout({
             <div className="fixed top-0 right-0 z-[9999]">
               <Toggle />
             </div>
-            <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[9998]">
+            <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[10]">
+              {/* TODO - Docked Alignment with multiple layers */}
               <Docked />
             </div>
             {children}

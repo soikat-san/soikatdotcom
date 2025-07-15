@@ -1,7 +1,7 @@
 /*
 	Installed from https://reactbits.dev/ts/tailwind/
 */
-
+"use client";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -16,6 +16,7 @@ export interface ScrambledTextProps {
   scrambleChars?: string;
   className?: string;
   style?: React.CSSProperties;
+  margin?: string;
   children: React.ReactNode;
 }
 
@@ -26,6 +27,7 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
   scrambleChars = ".:",
   className = "",
   style = {},
+  margin = "7vw",
   children,
 }) => {
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -78,8 +80,8 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
   return (
     <div
       ref={rootRef}
-      className={`m-[7vw] max-w-[800px] font-mono text-[clamp(14px,4vw,32px)] text-white ${className}`}
-      style={style}
+      className={`max-w-[800px] font-mono text-[clamp(14px,4vw,32px)] text-black dark:text-white ${className}`}
+      style={{ margin, ...style }}
     >
       <p>{children}</p>
     </div>
