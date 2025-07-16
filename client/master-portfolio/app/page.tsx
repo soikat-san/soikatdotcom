@@ -1,12 +1,13 @@
 import Hero from "@/src/blocks/hero";
-import Identity from "@/src/blocks/identity";
+import Snapshot from "@/src/blocks/snapshot";
 import RadiantBackground from "@/src/blocks/radiance";
 
 export default function Home() {
   return (
     <RadiantBackground>
       <Hero />
-      <Identity />
+      {/* TODO - include identity in terminal */}
+      <Snapshot />
     </RadiantBackground>
   );
 }

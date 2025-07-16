@@ -24,9 +24,9 @@ const Toggle: React.FC = () => {
       />
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
         {theme === "dark" ? (
-          <Sun className="w-10 h-10 text-white" />
+          <Sun className="w-10 h-10 text-yellow-300" />
         ) : (
-          <Moon className="w-10 h-10 text-white" />
+          <Moon className="w-10 h-10 text-black" />
         )}
       </div>
     </div>

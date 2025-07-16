@@ -10,7 +10,7 @@ const Identity: React.FC = () => {
       ? ["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]
       : ["#FFD700", "#c2410c", "#FFD700", "#c2410c", "#FFD700"];
   return (
-    <div className="mt-10 p-10 w-7/12 ml-auto rounded-4xl flex flex-col items-center bg-white dark:bg-black">
+    <div className="mt-10 p-10 w-7/12 ml-auto rounded-4xl flex flex-col items-center bg-white/70 dark:bg-black/70">
       <ScrambledText
         radius={100}
         duration={1.2}

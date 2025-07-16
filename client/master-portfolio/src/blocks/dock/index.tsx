@@ -34,10 +34,10 @@ const Docked: React.FC = () => {
   return (
     <Dock
       items={dockItems}
-      panelHeight={70}
+      panelHeight={67}
       baseItemSize={50}
       magnification={100}
-      className="dark:bg-black bg-white !border-0"
+      className="dark:bg-black bg-white !border-0 rounded-l-full rounded-r-full"
     />
   );
 };
