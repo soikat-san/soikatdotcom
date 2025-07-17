@@ -20,6 +20,8 @@ interface TextPressureProps {
   strokeWidth?: number;
   className?: string;
   minFontSize?: number;
+  fixedFontSize?: number;
+  letterSpacing?: number;
 }
 
 const TextPressure: React.FC<TextPressureProps> = ({
@@ -38,6 +40,8 @@ const TextPressure: React.FC<TextPressureProps> = ({
   strokeWidth = 2,
   className = "",
   minFontSize = 24,
+  fixedFontSize,
+  letterSpacing,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
@@ -93,8 +97,15 @@ const TextPressure: React.FC<TextPressureProps> = ({
     const { width: containerW, height: containerH } =
       containerRef.current.getBoundingClientRect();
 
-    let newFontSize = containerW / (chars.length / 2);
-    newFontSize = Math.max(newFontSize, minFontSize);
+    let newFontSize;
+    if (fixedFontSize) {
+      // Use fixed font size when provided
+      newFontSize = fixedFontSize;
+    } else {
+      // Dynamic font size calculation based on container dimensions
+      newFontSize = containerW / (chars.length / 2);
+      newFontSize = Math.max(newFontSize, minFontSize);
+    }
 
     setFontSize(newFontSize);
     setScaleY(1);
@@ -110,7 +121,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
         setLineHeight(yRatio);
       }
     });
-  }, [scale, chars.length, minFontSize]);
+  }, [scale, chars.length, minFontSize, fixedFontSize]);
 
   useEffect(() => {
     setSize();
@@ -195,7 +206,11 @@ const TextPressure: React.FC<TextPressureProps> = ({
       <h1
         ref={titleRef}
         className={`text-pressure-title ${className} ${
-          flex ? "flex justify-between" : ""
+          flex && !fixedFontSize
+            ? "flex justify-between"
+            : fixedFontSize
+              ? "flex justify-start"
+              : ""
         } ${stroke ? "stroke" : ""} uppercase text-center`}
         style={{
           fontFamily,
@@ -206,6 +221,11 @@ const TextPressure: React.FC<TextPressureProps> = ({
           margin: 0,
           fontWeight: 100,
           color: stroke ? undefined : textColor,
+          letterSpacing: letterSpacing
+            ? `${letterSpacing}px`
+            : fixedFontSize
+              ? `${fontSize * 0.02}px`
+              : undefined,
         }}
       >
         {chars.map((char, i) => (
