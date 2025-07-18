@@ -15,7 +15,7 @@ const InteractiveTerminal: React.FC = () => {
         <div className="col-span-4 border border-t-0 border-b-0 border-l-0 border-r-2 border-r-blue-700 dark:border-r-amber-500">
           <Commands />
         </div>
-        <div className="p-5 col-span-8 text-blue-700 dark:text-amber-500">
+        <div className="pl-5 col-span-8 text-blue-700 dark:text-amber-500">
           TERMINAL
         </div>
       </div>

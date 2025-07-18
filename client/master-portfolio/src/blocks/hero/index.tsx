@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
     window.addEventListener("resize", updateFontDimensions);
     return () => window.removeEventListener("resize", updateFontDimensions);
   }, []);
-  console.log(fontDimensions, "--fs");
+
   return (
     <div className="p-5 w-full h-auto bg-white/50 dark:bg-black/50 rounded-xl select-none">
       <ShinyText

@@ -1,7 +1,7 @@
 /*
 	Installed from https://reactbits.dev/ts/tailwind/
 */
-
+"use client";
 import React, { useRef, useEffect, useCallback } from "react";
 
 interface ClickSparkProps {
@@ -166,7 +166,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     <div className="relative w-full h-full" onClick={handleClick}>
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-50"
       />
       {children}
     </div>
