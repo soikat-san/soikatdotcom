@@ -10,6 +10,7 @@ const InteractiveShell: React.FC = () => {
   const [prompt, setPrompt] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
   const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [useCallbackSystem, setUseCallbackSystem] = useState(false);
 
   const handlePrompt = (e: ChangeEvent<HTMLInputElement>) => {
     setPrompt(e.target.value);
@@ -20,16 +21,34 @@ const InteractiveShell: React.FC = () => {
     const cmd = prompt.trim().toLowerCase();
     if (!cmd) return;
 
+    // Commands that use TypewriterMultiline (callback system)
+    const callbackCommands = ["bio", "origin"];
+    const usesCallback = callbackCommands.includes(cmd);
+
+    const handleAnimationComplete = () => {
+      setIsAnimating(false);
+    };
+
     const RespComp = responseMap[cmd];
     const responseElement = RespComp ? (
-      <RespComp command={cmd} />
+      <RespComp
+        onAnimationComplete={usesCallback ? handleAnimationComplete : undefined}
+      />
     ) : (
-      <p>Command not found: &quot;{cmd}&quot;</p>
+      <p className="text-xl  text-black dark:text-white typewriter-sequential">
+        Command not found: &quot;{cmd}&quot;
+      </p>
     );
 
     setHistory((h) => [...h, { command: cmd, response: responseElement }]);
     setPrompt("");
     setIsAnimating(true); // Hide input during animation
+    setUseCallbackSystem(usesCallback); // Set flag for animation detection system
+
+    // For commands without animation (like "command not found"), show input immediately
+    if (!RespComp) {
+      setTimeout(() => setIsAnimating(false), 100);
+    }
   };
 
   // Auto-scroll to keep input field visible when history updates
@@ -44,7 +63,11 @@ const InteractiveShell: React.FC = () => {
   }, [history]);
 
   // Auto-scroll during typewriter animations and track when they complete
+  // Only run for CSS-based animations (not callback-based)
   useEffect(() => {
+    // Skip this logic if using callback system
+    if (useCallbackSystem) return;
+
     const terminalContainer = document.getElementById("terminal-shell");
     if (!terminalContainer || !shellContainerRef.current) return;
 
@@ -114,8 +137,8 @@ const InteractiveShell: React.FC = () => {
         setTimeout(() => {
           setIsAnimating(false);
         }, 100);
-      }, maxDuration); // Add 500ms buffer
-      console.log(maxDuration, "--md");
+      }, maxDuration);
+
       return () => {
         isScrolling = false;
         if (animationFrame) {
@@ -131,7 +154,24 @@ const InteractiveShell: React.FC = () => {
 
       return () => clearTimeout(timeout);
     }
-  }, [history, isAnimating]);
+  }, [history, isAnimating, useCallbackSystem]);
+
+  // Auto-scroll for callback-based animations
+  useEffect(() => {
+    if (useCallbackSystem && isAnimating) {
+      const terminalContainer = document.getElementById("terminal-shell");
+      if (terminalContainer) {
+        const scrollToBottom = () => {
+          terminalContainer.scrollTop = terminalContainer.scrollHeight;
+        };
+
+        // Scroll periodically during animation
+        const interval = setInterval(scrollToBottom, 100);
+
+        return () => clearInterval(interval);
+      }
+    }
+  }, [useCallbackSystem, isAnimating]);
 
   return (
     <div ref={shellContainerRef}>

@@ -1,7 +1,8 @@
 import { sora } from "@/lib/fonts";
 import { commands } from "@/lib/prompts";
+import { ResponseComponentProps } from "@/lib/response.map";
 
-const ControlsResponse: React.FC = () => {
+const ControlsResponse: React.FC<ResponseComponentProps> = () => {
   return (
     <div className={`${sora.className} flex flex-col`}>
       <p
@@ -10,6 +11,7 @@ const ControlsResponse: React.FC = () => {
       >
         Available commands are as follows:
       </p>
+
       <div className="grid grid-cols-12">
         {commands.map((cmd, idx) => (
           <div key={idx} className="col-span-6 flex items-center pb-2">
