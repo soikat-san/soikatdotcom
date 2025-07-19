@@ -1,6 +1,6 @@
-import { commands } from "./prompts";
 import { iceland } from "@/lib/fonts";
 import { useTheme } from "next-themes";
+import { commands } from "@/lib/prompts";
 import ClickSpark from "@/src/components/reactbits/Animations/ClickSpark/ClickSpark";
 import StarBorder from "@/src/components/reactbits/Animations/StarBorder/StarBorder";
 
@@ -30,7 +30,7 @@ const Commands: React.FC = () => {
                 color={starShade}
                 className="w-30 cursor-pointer rounded-xl"
               >
-                {cmd}
+                {cmd.key}
               </StarBorder>
             </ClickSpark>
           </div>

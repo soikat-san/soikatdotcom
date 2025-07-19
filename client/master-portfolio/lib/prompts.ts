@@ -1,0 +1,15 @@
+export const commands = [
+  { key: "controls", value: "guidelines for each prompt" },
+  { key: "origin", value: "where I am from" },
+  { key: "bio", value: "learn about me" },
+  { key: "quests", value: "my personal projects" },
+  { key: "arsenal", value: "explore my skill tree" },
+  { key: "campaigns", value: "my work experience" },
+  { key: "codex", value: "executes sudo" },
+  { key: "trophies", value: "my certifications" },
+  { key: "callsign", value: "how to reach me" },
+  { key: "dossier", value: "check out my resume" },
+  { key: "letsjam", value: "play music" },
+  { key: "jamover", value: "pause music" },
+  { key: "respawn", value: "clear terminal" },
+];
