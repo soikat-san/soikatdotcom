@@ -12,7 +12,7 @@ interface TypewriterMultilineProps {
 
 export const TypewriterMultiline: React.FC<TypewriterMultilineProps> = ({
   text,
-  speed = 50,
+  speed = 10,
   startDelay = 0,
   className = "",
   showCursor = false,

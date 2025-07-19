@@ -186,11 +186,11 @@ const InteractiveShell: React.FC = () => {
           </p>
         </div>
         <p className="text-xl text-black dark:text-white pl-4">
-          Hi, I&apos;m Soikat Chakrabarty, a Software Engineer
+          Hi, I&apos;m Soikat Chakrabarty, a Software Engineer.
         </p>
         <p className="text-xl text-black dark:text-white pl-4">
           Type <strong>&apos;controls&apos;</strong> to familiarize yourself
-          with the commands
+          with the commands.
         </p>
       </div>
 

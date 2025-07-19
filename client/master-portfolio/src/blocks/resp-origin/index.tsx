@@ -1,6 +1,6 @@
 import { sora } from "@/lib/fonts";
-import { TypewriterMultiline } from "@/src/components/ui/typewriter-multiline";
 import { ResponseComponentProps } from "@/lib/response.map";
+import { TypewriterMultiline } from "@/src/components/ui/typewriter-multiline";
 
 const OriginResponse: React.FC<ResponseComponentProps> = ({
   onAnimationComplete,
@@ -17,10 +17,9 @@ const OriginResponse: React.FC<ResponseComponentProps> = ({
     <div className={`flex flex-col`}>
       <TypewriterMultiline
         text={words}
-        className={`${sora.className} text-sm py-2 text-black dark:text-white`}
-        speed={25}
         startDelay={0}
         onComplete={onAnimationComplete}
+        className={`${sora.className} text-sm py-2 text-black dark:text-white`}
       />
     </div>
   );
