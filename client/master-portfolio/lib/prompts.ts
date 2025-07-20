@@ -5,9 +5,9 @@ export const commands = [
   { key: "quests", value: "my personal projects" }, // TODO
   { key: "arsenal", value: "explore my skill tree" }, // TODO
   { key: "campaigns", value: "my work experience" }, // TODO
-  { key: "codex", value: "executes sudo" }, // TODO
+  { key: "codex", value: "executes sudo" },
   { key: "trophies", value: "my certifications" }, // TODO
-  { key: "callsign", value: "how to reach me" }, // TODO
+  { key: "callsign", value: "how to reach me" },
   { key: "dossier", value: "check out my resume" }, // TODO
   { key: "letsjam", value: "play music" }, // TODO
   { key: "jamover", value: "pause music" }, // TODO

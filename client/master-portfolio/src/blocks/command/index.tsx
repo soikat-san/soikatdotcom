@@ -16,7 +16,7 @@ const Commands: React.FC = () => {
       </p>
       <div className="grid grid-cols-12 pt-5">
         {commands.map((cmd, idx) => (
-          <div key={idx} className="col-span-3 py-4">
+          <div key={idx} className="col-span-3 py-1">
             <ClickSpark
               sparkSize={10}
               sparkCount={8}
