@@ -1,10 +1,6 @@
 "use client";
-import {
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-  motion,
-} from "motion/react";
+import { sora } from "@/lib/fonts";
+import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -34,16 +30,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
+      className={`w-full bg-transparent font-sans md:px-10 ${sora.className}`}
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
+        <h2 className="text-lg md:text-4xl mb-4  text-white max-w-4xl">
+          Fragments of Becoming
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
+        <p className="text-neutral-300 text-sm md:text-base max-w-md text-justify">
+          These aren’t just roles I’ve held or companies I’ve worked at —
+          they’re moments that shaped how I think, build, and collaborate. Each
+          fragment represents a challenge faced, a lesson learned, or a system
+          architected with care. Together, they map the path I’ve taken — and
+          the developer I continue to become.
         </p>
       </div>
 
