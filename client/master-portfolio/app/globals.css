@@ -422,3 +422,14 @@ body {
     opacity: 0;
     animation: bullet-fade-in 0.3s ease-out forwards;
 }
+
+.clip-hexagon {
+    clip-path: polygon(
+        25% 6.7%,
+        75% 6.7%,
+        100% 50%,
+        75% 93.3%,
+        25% 93.3%,
+        0% 50%
+    );
+}
