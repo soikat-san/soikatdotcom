@@ -205,6 +205,32 @@ const MyJourney: React.FC = () => {
         </div>
       ),
     },
+    {
+      title: "2019",
+      content: (
+        <div className="pb-10">
+          <p className="text-5xl font-extrabold text-neutral-300">
+            Early Embers
+          </p>
+          <p className="pt-2 text-md font-normal text-neutral-300">
+            - A quiet init() before the launch.
+          </p>
+          <p className="pt-5 italic text-justify text-sm">
+            Before fully transitioning into tech, I spent time navigating a very
+            different field — one that demanded resilience, adaptability, and
+            clear communication during a challenging personal chapter. It wasn’t
+            a formal technical role, but in the margins of that experience, I
+            began exploring frontend development on my own. I took on a small
+            contract-like project for a local business — designing and building
+            a responsive presentational website. Working independently taught me
+            the basics of performance, structure, and mobile-first thinking. It
+            was a quiet but meaningful start — a glimpse into the discipline and
+            satisfaction that comes with shipping something real, and the moment
+            I knew I wanted to build software with purpose.
+          </p>
+        </div>
+      ),
+    },
   ];
   return (
     <div className="p-5 h-full">
