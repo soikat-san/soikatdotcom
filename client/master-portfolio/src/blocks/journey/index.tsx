@@ -1,5 +1,5 @@
-import { PFLog, ROCCLog } from "@/lib/journeylog";
 import { Timeline } from "@/src/components/ui/timeline";
+import { PFLog, ROCCLog, ADVLog, CAVLog } from "@/lib/journeylog";
 
 const MyJourney: React.FC = () => {
   const data = [
@@ -99,6 +99,103 @@ const MyJourney: React.FC = () => {
           </p>
           <ul className="pt-4">
             {ROCCLog.map((highlight, index) => (
+              <li key={index} className="flex items-start gap-4 mb-2">
+                <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
+                <p className="text-md font-light text-justify">{highlight}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: "Mid 2023",
+      content: (
+        <div>
+          <p className="text-5xl font-extrabold text-neutral-300">
+            ROCCSOLUTION India Pvt Ltd
+          </p>
+          <p className="text-md font-normal text-neutral-300">
+            - Web Developer Frontend
+          </p>
+          <p className="pt-5 italic text-justify text-sm">
+            I joined Roccsolution in June 2023, eager to move beyond routine
+            development and immerse myself in real product work. This was my
+            first opportunity to take ownership of customer-facing features with
+            real business stakes — from lead pipelines and loan logic to
+            dashboard flows that directly impacted provider operations. I
+            quickly found myself not just implementing designs, but shaping
+            them; not just integrating APIs, but questioning flows and
+            suggesting better ones. It was a hands-on, fast-moving environment
+            that asked me to think critically, design with empathy, and deliver
+            with care. That role planted the early roots of product intuition
+            and frontend leadership that would later define the way I work
+            today.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "2021-2023",
+      content: (
+        <div>
+          <p className="text-5xl font-extrabold text-neutral-300">
+            Advenith Technology Pvt Ltd
+          </p>
+          <p className="text-md font-normal text-neutral-300">
+            - React Developer
+          </p>
+          <p className="pt-5 italic text-justify text-sm">
+            In late 2021, I joined Advenith Technology with a strong grasp of
+            the React ecosystem and a growing hunger to sharpen my fundamentals
+            through real-world client projects. This was a phase of rapid
+            exploration and deep focus — I learned to move fast without breaking
+            things, to translate fuzzy requirements into fluid UI, and to design
+            with intention. I was building production-ready SPAs that needed to
+            be stable, responsive, and flexible across domains. At Advenith, I
+            honed my communication skills, got comfortable working across
+            shifting priorities, and built the frontend muscle memory that would
+            shape my developer instincts going forward.
+          </p>
+          <p className="pt-5 underline underline-offset-4">
+            Core Engineering Contributions at Advenith
+          </p>
+          <ul className="pt-4">
+            {ADVLog.map((highlight, index) => (
+              <li key={index} className="flex items-start gap-4 mb-2">
+                <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
+                <p className="text-md font-light text-justify">{highlight}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: "Early 2021",
+      content: (
+        <div>
+          <p className="text-5xl font-extrabold text-neutral-300">
+            Cavis Infotech Pvt Ltd
+          </p>
+          <p className="text-md font-normal text-neutral-300">
+            - React Developer
+          </p>
+          <p className="pt-5 italic text-justify text-sm">
+            Cavis Infotech was where it all began — my first experience writing
+            code that directly impacted real users and teams. I joined in April
+            2021 as a React developer and was tasked with building an attendance
+            tracking system from the ground up. It challenged me to think
+            structurally, deliver with clarity, and design interfaces that
+            solved real operational problems. That project taught me the value
+            of building software that’s not just functional, but essential — and
+            it set the tone for how I’ve approached every role since.
+          </p>
+          <p className="pt-5 underline underline-offset-4">
+            Core Engineering Contributions at Cavis
+          </p>
+          <ul className="pt-4">
+            {CAVLog.map((highlight, index) => (
               <li key={index} className="flex items-start gap-4 mb-2">
                 <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
                 <p className="text-md font-light text-justify">{highlight}</p>

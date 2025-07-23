@@ -24,4 +24,21 @@ const ROCCLog = [
   `Designed and developed dynamic UI components in Next.js and React, focusing on performance, responsiveness, and maintainability across Finder’s customer-facing and business dashboards.`,
 ];
 
-export { PFLog, ROCCLog };
+const ADVLog = [
+  `Took ownership of frontend implementation across several multi-module web apps, streamlining component state management and optimizing lifecycle flows.`,
+  `Improved code quality and maintainability by introducing shared UI patterns, modular folder structures, and performance-conscious rendering strategies.`,
+  `Collaborated with cross-functional teams including backend engineers, QA testers, and client stakeholders to maintain alignment from wireframes to final release.`,
+  `Contributed to QA cycles by writing UI test cases and manually verifying responsive behavior across devices, ensuring pixel-perfect delivery under tight deadlines.`,
+  `Translated complex business requirements into user-centered UI designs, resulting in improved client satisfaction and a 30% increase in user engagement across key projects.`,
+  `Delivered scalable Single Page Applications (SPAs) using React and Redux, ensuring clean architecture, component reusability, and consistent performance across a variety of client use cases.`,
+];
+
+const CAVLog = [
+  `Learned to prioritize usability, performance, and maintainability — values that shaped my development philosophy moving forward.`,
+  `Collaborated with backend developers to define API contracts and data flow, aligning UI state with accurate real-time data updates.`,
+  `Built a robust, end-to-end attendance tracking system using React, focusing on modular components, real-time state management, and clean UI flows.`,
+  `Designed and implemented real-time reporting interfaces and employee check-in dashboards, streamlining internal HR workflows and reducing manual errors.`,
+  `Worked across the full frontend lifecycle — from wireframe interpretation to pixel-perfect implementation — ensuring a polished and reliable user experience.`,
+];
+
+export { PFLog, ROCCLog, ADVLog, CAVLog };
