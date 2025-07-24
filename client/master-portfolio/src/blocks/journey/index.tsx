@@ -7,13 +7,13 @@ const MyJourney: React.FC = () => {
       title: "2025",
       content: (
         <div>
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             TECHIEBUTLER, India
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - Senior Frontend Developer
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - building Property Finder’s B2B platforms (UAE)
           </p>
           <p className="pt-5 italic text-justify text-sm">
@@ -30,14 +30,16 @@ const MyJourney: React.FC = () => {
             idea to release. It’s a culture of shared ownership, thoughtful
             code, and measurable impact — and I’ve grown stronger because of it.
           </p>
-          <p className="pt-5 underline underline-offset-4">
+          <p className="pt-5 underline underline-offset-4 text-sm md:text-md">
             Core Engineering Contributions at Property Finder
           </p>
           <ul className="pt-4">
             {PFLog.map((highlight, index) => (
               <li key={index} className="flex items-start gap-4 mb-2">
                 <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
-                <p className="text-md font-light text-justify">{highlight}</p>
+                <p className="text-sm md:text-md font-light text-justify">
+                  {highlight}
+                </p>
               </li>
             ))}
           </ul>
@@ -48,10 +50,10 @@ const MyJourney: React.FC = () => {
       title: "Mid 2024",
       content: (
         <div>
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             TECHIEBUTLER, India
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - Senior Frontend Developer
           </p>
           <p className="pt-5 italic text-justify text-sm">
@@ -74,10 +76,10 @@ const MyJourney: React.FC = () => {
       title: "Early 2024",
       content: (
         <div>
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             ROCCSOLUTION India Pvt Ltd
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - Web Developer Frontend
           </p>
           <p className="pt-5 italic text-justify text-sm">
@@ -94,14 +96,16 @@ const MyJourney: React.FC = () => {
             product engineer — not just a developer — and those habits have
             stayed with me ever since.
           </p>
-          <p className="pt-5 underline underline-offset-4">
+          <p className="pt-5 underline underline-offset-4 text-sm md:text-md">
             Core Engineering Contributions at RoccSolution
           </p>
           <ul className="pt-4">
             {ROCCLog.map((highlight, index) => (
               <li key={index} className="flex items-start gap-4 mb-2">
                 <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
-                <p className="text-md font-light text-justify">{highlight}</p>
+                <p className="text-sm md:text-md font-light text-justify">
+                  {highlight}
+                </p>
               </li>
             ))}
           </ul>
@@ -112,10 +116,10 @@ const MyJourney: React.FC = () => {
       title: "Mid 2023",
       content: (
         <div>
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             ROCCSOLUTION India Pvt Ltd
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - Web Developer Frontend
           </p>
           <p className="pt-5 italic text-justify text-sm">
@@ -139,10 +143,10 @@ const MyJourney: React.FC = () => {
       title: "2021-2023",
       content: (
         <div>
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             Advenith Technology Pvt Ltd
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - React Developer
           </p>
           <p className="pt-5 italic text-justify text-sm">
@@ -157,14 +161,16 @@ const MyJourney: React.FC = () => {
             shifting priorities, and built the frontend muscle memory that would
             shape my developer instincts going forward.
           </p>
-          <p className="pt-5 underline underline-offset-4">
+          <p className="pt-5 underline underline-offset-4 text-sm md:text-md">
             Core Engineering Contributions at Advenith
           </p>
           <ul className="pt-4">
             {ADVLog.map((highlight, index) => (
               <li key={index} className="flex items-start gap-4 mb-2">
                 <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
-                <p className="text-md font-light text-justify">{highlight}</p>
+                <p className="text-sm md:text-md font-light text-justify">
+                  {highlight}
+                </p>
               </li>
             ))}
           </ul>
@@ -175,10 +181,10 @@ const MyJourney: React.FC = () => {
       title: "Early 2021",
       content: (
         <div>
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             Cavis Infotech Pvt Ltd
           </p>
-          <p className="text-md font-normal text-neutral-300">
+          <p className="text-sm md:text-md font-normal text-neutral-300">
             - React Developer
           </p>
           <p className="pt-5 italic text-justify text-sm">
@@ -191,14 +197,16 @@ const MyJourney: React.FC = () => {
             of building software that’s not just functional, but essential — and
             it set the tone for how I’ve approached every role since.
           </p>
-          <p className="pt-5 underline underline-offset-4">
+          <p className="pt-5 underline underline-offset-4 text-sm md:text-md">
             Core Engineering Contributions at Cavis
           </p>
           <ul className="pt-4">
             {CAVLog.map((highlight, index) => (
               <li key={index} className="flex items-start gap-4 mb-2">
                 <div className="w-4 h-4 mt-1.5 bg-neutral-400 rotate-90 clip-hexagon flex-shrink-0" />
-                <p className="text-md font-light text-justify">{highlight}</p>
+                <p className="text-sm md:text-md font-light text-justify">
+                  {highlight}
+                </p>
               </li>
             ))}
           </ul>
@@ -209,10 +217,10 @@ const MyJourney: React.FC = () => {
       title: "2019",
       content: (
         <div className="pb-10">
-          <p className="text-5xl font-extrabold text-neutral-300">
+          <p className="text-sm md:text-3xl xl:text-5xl font-extrabold text-neutral-300">
             Early Embers
           </p>
-          <p className="pt-2 text-md font-normal text-neutral-300">
+          <p className="pt-2 text-sm md:text-md font-normal text-neutral-300">
             - A quiet init() before the launch.
           </p>
           <p className="pt-5 italic text-justify text-sm">
