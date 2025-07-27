@@ -1,9 +1,10 @@
 /*
 	Installed from https://reactbits.dev/ts/tailwind/
 */
-
+"use client";
 import { FC, useRef, useState, useEffect, MutableRefObject } from "react";
 import { mat4, quat, vec2, vec3 } from "gl-matrix";
+import { sora } from "@/lib/fonts";
 
 const discVertShaderSource = `#version 300 es
 
@@ -75,16 +76,16 @@ void main() {
     ivec2 texSize = textureSize(uTex, 0);
     float imageAspect = float(texSize.x) / float(texSize.y);
     float containerAspect = 1.0;
-    
-    float scale = max(imageAspect / containerAspect, 
+
+    float scale = max(imageAspect / containerAspect,
                      containerAspect / imageAspect);
-    
+
     vec2 st = vec2(vUvs.x, 1.0 - vUvs.y);
     st = (st - 0.5) * scale + 0.5;
-    
+
     st = clamp(st, 0.0, 1.0);
     st = st * cellSize + cellOffset;
-    
+
     outColor = texture(uTex, st);
     outColor.a *= vAlpha;
 }
@@ -683,9 +684,9 @@ class ArcballControl {
 
 interface MenuItem {
   image: string;
-  link: string;
-  title: string;
-  description: string;
+  link?: string;
+  title?: string;
+  description?: string;
 }
 
 type ActiveItemCallback = (index: number) => void;
@@ -819,7 +820,7 @@ class InfiniteGridMenu {
   private init(onInit?: InitCallback): void {
     const gl = this.canvas.getContext("webgl2", {
       antialias: true,
-      alpha: false,
+      alpha: true,
     });
     if (!gl) {
       throw new Error("No WebGL 2 context!");
@@ -1231,9 +1232,13 @@ const defaultItems: MenuItem[] = [
 
 interface InfiniteMenuProps {
   items?: MenuItem[];
+  hideLink?: boolean;
 }
 
-const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
+const InfiniteMenu: FC<InfiniteMenuProps> = ({
+  items = [],
+  hideLink = false,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(
     null,
   ) as MutableRefObject<HTMLCanvasElement | null>;
@@ -1306,6 +1311,9 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
           -translate-y-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          hidden
+          [@media(min-width:1200px)]:block
+          ${sora.className}
           ${
             isMoving
               ? "opacity-0 pointer-events-none duration-[100ms]"
@@ -1321,11 +1329,15 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
           select-none
           absolute
           max-w-[10ch]
+          text-sm
           text-[1.5rem]
           top-1/2
           right-[1%]
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          hidden
+          [@media(min-width:1200px)]:block
+          ${sora.className}
           ${
             isMoving
               ? "opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2"
@@ -1336,9 +1348,10 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
             {activeItem.description}
           </p>
 
-          <div
-            onClick={handleButtonClick}
-            className={`
+          {!hideLink && (
+            <div
+              onClick={handleButtonClick}
+              className={`
           absolute
           left-1/2
           z-10
@@ -1359,11 +1372,12 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
               : "bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
           }
         `}
-          >
-            <p className="select-none relative text-[#060010] top-[2px] text-[26px]">
-              &#x2197;
-            </p>
-          </div>
+            >
+              <p className="select-none relative text-[#060010] top-[2px] text-[26px]">
+                &#x2197;
+              </p>
+            </div>
+          )}
         </>
       )}
     </div>

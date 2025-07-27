@@ -14,7 +14,7 @@ const Toggle: React.FC = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  const excludedRoutes = ["/timeline"];
+  const excludedRoutes = ["/timeline", "/arsenal"];
 
   return (
     <Fragment>
