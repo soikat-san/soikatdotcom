@@ -433,3 +433,85 @@ body {
         0% 50%
     );
 }
+
+.geometric-gradient-fill {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.geometric-gradient-fill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #4f46e5, #06b6d4, #f5f5f5);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.geometric-gradient-fill:hover::before {
+    transform: scaleX(1);
+}
+
+.geometric-text-progress {
+    color: white;
+    background: linear-gradient(to right, #ec4899, #8b5cf6, #6366f1);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    -webkit-background-clip: text;
+    transition:
+        background-size 0.6s ease,
+        -webkit-text-fill-color 0.3s ease;
+}
+
+.group:hover .geometric-text-progress {
+    background-size: 100% 100%;
+    -webkit-text-fill-color: transparent;
+}
+
+.planar-gradient-fill {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.planar-gradient-fill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #14532d, #34d399, #cffafe);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.planar-gradient-fill:hover::before {
+    transform: scaleX(1);
+}
+
+/* Planar text gradient progress */
+.planar-text-progress {
+    color: white;
+    background: linear-gradient(to right, #86198f, #ec4899, #c4b5fd);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    -webkit-background-clip: text;
+    transition:
+        background-size 0.6s ease,
+        -webkit-text-fill-color 0.3s ease;
+}
+
+.group:hover .planar-text-progress {
+    background-size: 100% 100%;
+    -webkit-text-fill-color: transparent;
+}
+
+.geometric-gradient-fill:hover,
+.planar-gradient-fill:hover {
+    border: none !important;
+}
