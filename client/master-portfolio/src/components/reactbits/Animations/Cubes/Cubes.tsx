@@ -1,7 +1,7 @@
 /*
 	Installed from https://reactbits.dev/ts/tailwind/
 */
-
+"use client";
 import React, { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 

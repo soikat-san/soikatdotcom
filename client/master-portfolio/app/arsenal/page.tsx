@@ -7,9 +7,10 @@ import AuricBackground from "@/src/blocks/aura";
 import TargetCursor from "@/src/components/reactbits/Animations/TargetCursor/TargetCursor";
 import InfiniteMenu from "@/src/components/reactbits/Components/InfiniteMenu/InfiniteMenu";
 import RotatingText from "@/src/components/reactbits/TextAnimations/RotatingText/RotatingText";
+import ModularTree from "@/src/blocks/modular";
 
 export default function Arsenal() {
-  const [layers, setLayers] = useState(0);
+  const [layers, setLayers] = useState(1);
 
   const reset = (): void => {
     setLayers(0);
@@ -94,7 +95,7 @@ export default function Arsenal() {
           )}
           {layers === 1 && (
             <div className="rounded-md overflow-hidden h-[calc(100vh-150px)] bg-transparent">
-              hello
+              <ModularTree />
             </div>
           )}
         </div>

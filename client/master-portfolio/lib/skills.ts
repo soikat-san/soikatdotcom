@@ -6,12 +6,15 @@ import gitLogo from "@/assets/GIT.png";
 import muiLogo from "@/assets/MUI.png";
 import gqlLogo from "@/assets/GQL.png";
 import cssLogo from "@/assets/CSS3.png";
+import dopsLogo from "@/assets/DOPS.png";
 import nextLogo from "@/assets/NEXT.png";
 import nodeLogo from "@/assets/NODE.png";
 import cicdLogo from "@/assets/CICD.png";
 import jestLogo from "@/assets/JEST.png";
+import expoLogo from "@/assets/EXPO.png";
 import rNLogo from "@/assets/RNATIVE.png";
 import htmlLogo from "@/assets/HTML5.png";
+import xcodeLogo from "@/assets/XCODE.png";
 import nginxLogo from "@/assets/NGINX.png";
 import rbitsLogo from "@/assets/RBITS.png";
 import figmaLogo from "@/assets/FIGMA.png";
@@ -21,14 +24,11 @@ import gHubLogo from "@/assets/GITHUB.png";
 import webPLogo from "@/assets/WEBPACK.png";
 import zustLogo from "@/assets/ZUSTAND.png";
 import microFLogo from "@/assets/MICROF.png";
+import dockerLogo from "@/assets/DOCKER.png";
 import modFedLogo from "@/assets/MODFED.png";
 import cucuLogo from "@/assets/CUCUMBER.png";
 import tailwindLogo from "@/assets/TAILWIND.png";
 import playwrtLogo from "@/assets/PLAYWRIGHT.png";
-import expoLogo from "@/assets/EXPO.png";
-import xcodeLogo from "@/assets/XCODE.png";
-import dopsLogo from "@/assets/DOPS.png";
-import dockerLogo from "@/assets/DOCKER.png";
 
 export const skillsTree = [
   {
