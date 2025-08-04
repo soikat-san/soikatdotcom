@@ -12,6 +12,8 @@ import nodeLogo from "@/assets/NODE.png";
 import cicdLogo from "@/assets/CICD.png";
 import jestLogo from "@/assets/JEST.png";
 import expoLogo from "@/assets/EXPO.png";
+import pnpmLogo from "@/assets/PNPM.png";
+import yarnLogo from "@/assets/YARN.png";
 import rNLogo from "@/assets/RNATIVE.png";
 import htmlLogo from "@/assets/HTML5.png";
 import xcodeLogo from "@/assets/XCODE.png";
@@ -30,7 +32,7 @@ import cucuLogo from "@/assets/CUCUMBER.png";
 import tailwindLogo from "@/assets/TAILWIND.png";
 import playwrtLogo from "@/assets/PLAYWRIGHT.png";
 
-export const skillsTree = [
+export const geometricTree = [
   {
     image: jsLogo.src,
     title: "JavaScript",
@@ -216,5 +218,17 @@ export const skillsTree = [
     title: "Docker",
     description:
       "I use Docker to containerize applications, ensuring consistent development environments and simplifying deployment across different systems.",
+  },
+  {
+    image: pnpmLogo.src,
+    title: "PNPM",
+    description:
+      "I work with pnpm for its performance and disk efficiency, especially when managing large monorepos or modular projects.",
+  },
+  {
+    image: yarnLogo.src,
+    title: "Yarn",
+    description:
+      "I use Yarn to manage project dependencies efficiently, enabling fast installs and consistent environments across teams.",
   },
 ];

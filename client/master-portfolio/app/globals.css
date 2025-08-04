@@ -515,3 +515,17 @@ body {
 .planar-gradient-fill:hover {
     border: none !important;
 }
+
+/* Move animation for the vertical line */
+@keyframes move {
+    0% {
+        transform: translateX(-200px);
+    }
+    100% {
+        transform: translateX(200px);
+    }
+}
+
+.animate-move {
+    animation: move 5s linear infinite;
+}

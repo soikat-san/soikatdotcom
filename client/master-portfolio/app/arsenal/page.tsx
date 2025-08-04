@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { sora } from "@/lib/fonts";
 import { Undo2 } from "lucide-react";
-import { skillsTree } from "@/lib/skills";
+import { geometricTree } from "@/lib/skills";
 import AuricBackground from "@/src/blocks/aura";
 import TargetCursor from "@/src/components/reactbits/Animations/TargetCursor/TargetCursor";
 import InfiniteMenu from "@/src/components/reactbits/Components/InfiniteMenu/InfiniteMenu";
@@ -90,11 +90,11 @@ export default function Arsenal() {
           </div>
           {layers === 2 && (
             <div className="rounded-md overflow-hidden h-[calc(100vh-150px)] bg-transparent">
-              <InfiniteMenu items={skillsTree} hideLink />
+              <InfiniteMenu items={geometricTree} hideLink />
             </div>
           )}
           {layers === 1 && (
-            <div className="rounded-md overflow-hidden h-[calc(100vh-150px)] bg-transparent">
+            <div className="rounded-md overflow-scroll h-[calc(100vh-180px)] bg-transparent">
               <ModularTree />
             </div>
           )}
