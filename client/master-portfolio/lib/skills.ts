@@ -232,3 +232,222 @@ export const geometricTree = [
       "I use Yarn to manage project dependencies efficiently, enabling fast installs and consistent environments across teams.",
   },
 ];
+
+export const frontend = [
+  {
+    alt: "redux",
+    image: reduxLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  {
+    alt: "next",
+    image: nextLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "react",
+    image: reactLogo,
+    imgSize: "h-14 w-14",
+    containerSize: "h-16 w-16",
+  },
+  {
+    alt: "reactnative",
+    image: rNLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "zustand",
+    image: zustLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+];
+
+export const languages = [
+  {
+    alt: "gql",
+    image: gqlLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  {
+    alt: "html",
+    image: htmlLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "js",
+    image: jsLogo,
+    imgSize: "h-14 w-14",
+    containerSize: "h-16 w-16",
+  },
+  {
+    alt: "ts",
+    image: tsLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "css",
+    image: cssLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+];
+
+export const architecture = [
+  {
+    alt: "git",
+    image: gitLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  {
+    alt: "microF",
+    image: microFLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "webP",
+    image: webPLogo,
+    imgSize: "h-14 w-14",
+    containerSize: "h-16 w-16",
+  },
+  {
+    alt: "moduleFed",
+    image: modFedLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "gitHub",
+    image: gHubLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+];
+
+export const uiToolkit = [
+  // row 1
+  {
+    alt: "rbits",
+    image: rbitsLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  {
+    alt: "mui",
+    image: muiLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "tailwind",
+    image: tailwindLogo,
+    imgSize: "h-14 w-14",
+    containerSize: "h-16 w-16",
+  },
+  {
+    alt: "figma",
+    image: figmaLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "aui",
+    image: auiLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  // row 2
+  {
+    alt: "expo",
+    image: expoLogo,
+    imgSize: "h-9 w-9",
+    containerSize: "h-11 w-11",
+  },
+  {
+    alt: "pnpm",
+    image: pnpmLogo,
+    imgSize: "h-12 w-12",
+    containerSize: "h-14 w-14",
+  },
+  {
+    alt: "yarn",
+    image: yarnLogo,
+    imgSize: "h-9 w-9",
+    containerSize: "h-11 w-11",
+  },
+  // row 3
+  {
+    alt: "xcode",
+    image: xcodeLogo,
+    imgSize: "h-11 w-11",
+    containerSize: "h-13 w-13",
+  },
+];
+
+export const backendDevops = [
+  // row 1
+  {
+    alt: "cicd",
+    image: cicdLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  {
+    alt: "docker",
+    image: dockerLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "aws",
+    image: awsLogo,
+    imgSize: "h-14 w-14",
+    containerSize: "h-16 w-16",
+  },
+  {
+    alt: "nginx",
+    image: nginxLogo,
+    imgSize: "h-10 w-10",
+    containerSize: "h-12 w-12",
+  },
+  {
+    alt: "dops",
+    image: dopsLogo,
+    imgSize: "h-8 w-8",
+    containerSize: "h-10 w-10",
+  },
+  // row 2
+  {
+    alt: "jest",
+    image: jestLogo,
+    imgSize: "h-9 w-9",
+    containerSize: "h-11 w-11",
+  },
+  {
+    alt: "playwright",
+    image: playwrtLogo,
+    imgSize: "h-12 w-12",
+    containerSize: "h-14 w-14",
+  },
+  {
+    alt: "cucumber",
+    image: cucuLogo,
+    imgSize: "h-9 w-9",
+    containerSize: "h-11 w-11",
+  },
+  // row 3
+  {
+    alt: "node",
+    image: nodeLogo,
+    imgSize: "h-11 w-11",
+    containerSize: "h-13 w-13",
+  },
+];
