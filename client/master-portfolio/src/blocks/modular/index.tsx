@@ -1,11 +1,3 @@
-// import Cubes from "@/src/components/reactbits/Animations/Cubes/Cubes";
-import {
-  Card,
-  Skeleton,
-  CardTitle,
-  CardDescription,
-  CardSkeletonContainer,
-} from "@/src/components/ui/damn-good-card";
 import {
   frontend,
   languages,
@@ -13,6 +5,14 @@ import {
   uiToolkit,
   backendDevops,
 } from "@/lib/skills";
+import {
+  Card,
+  Skeleton,
+  CardTitle,
+  CardDescription,
+  CardSkeletonContainer,
+} from "@/src/components/ui/damn-good-card";
+import Cubes from "@/src/components/reactbits/Animations/Cubes/Cubes";
 
 const ModularTree: React.FC = () => {
   return (
@@ -33,20 +33,15 @@ const ModularTree: React.FC = () => {
             </CardDescription>
           </Card>
         </div>
-        <div className="col-span-4 pl-10 pt-2">
-          {/* <Cubes
-            radius={1}
-            gridSize={6}
-            cubeSize={65}
-            maxAngle={120}
-            rippleSpeed={1.5}
-            autoAnimate={true}
-            rippleOnClick={true}
-            faceColor={"#171717"}
-            rippleColor={"#94a3b8"}
-            borderStyle={"1px dashed #f8fafc"}
-          /> */}
-          Cubes
+        <div className="col-span-4 pl-10 pt-14">
+          <Cubes
+            radius={2}
+            cubeSize={32}
+            maxAngle={180}
+            faceColor="#262626"
+            rippleColor="#93c5fd"
+            borderStyle="1px dashed #e879f9"
+          />
         </div>
         <div className="col-span-4 p-5">
           <Card>
@@ -64,7 +59,16 @@ const ModularTree: React.FC = () => {
         </div>
 
         {/* Row 2 */}
-        <div className="col-span-4 pl-10 pt-2">Cubes</div>
+        <div className="col-span-4 pl-10 pt-14">
+          <Cubes
+            radius={2}
+            cubeSize={32}
+            maxAngle={180}
+            faceColor="#262626"
+            rippleColor="#86efac"
+            borderStyle="1px dashed #16a34a"
+          />
+        </div>
         <div className="col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
@@ -79,7 +83,16 @@ const ModularTree: React.FC = () => {
             </CardDescription>
           </Card>
         </div>
-        <div className="col-span-4 pl-10 pt-2">Cubes</div>
+        <div className="col-span-4 pl-10 pt-14">
+          <Cubes
+            radius={2}
+            cubeSize={32}
+            maxAngle={180}
+            faceColor="#262626"
+            rippleColor="#f9a8d4"
+            borderStyle="1px dashed #e11d48"
+          />
+        </div>
 
         {/* Row 3 */}
         <div className="col-span-4 p-5">
@@ -99,7 +112,16 @@ const ModularTree: React.FC = () => {
             </CardDescription>
           </Card>
         </div>
-        <div className="col-span-4 pl-10 pt-2">Cubes</div>
+        <div className="col-span-4 pl-10 pt-14">
+          <Cubes
+            radius={2}
+            cubeSize={32}
+            maxAngle={180}
+            faceColor="#262626"
+            rippleColor="#fdba74"
+            borderStyle="1px dashed #f59e0b"
+          />
+        </div>
         <div className="col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
