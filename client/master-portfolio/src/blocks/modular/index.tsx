@@ -19,7 +19,7 @@ const ModularTree: React.FC = () => {
     <div>
       <div className="grid grid-cols-12">
         {/* Row 1 */}
-        <div className="col-span-4 p-5">
+        <div className="col-span-12 min-[910px]:col-span-6 min-[1240px]:col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
               <Skeleton segment={frontend} />
@@ -33,17 +33,19 @@ const ModularTree: React.FC = () => {
             </CardDescription>
           </Card>
         </div>
-        <div className="col-span-4 pl-10 pt-14">
-          <Cubes
-            radius={2}
-            cubeSize={32}
-            maxAngle={180}
-            faceColor="#262626"
-            rippleColor="#93c5fd"
-            borderStyle="1px dashed #e879f9"
-          />
+        <div className="col-span-4 hidden min-[1700px]:block">
+          <div className="flex justify-center relative right-[70px] top-[50px]">
+            <Cubes
+              radius={2}
+              cubeSize={32}
+              maxAngle={60}
+              faceColor="#262626"
+              rippleColor="#93c5fd"
+              borderStyle="1px dashed #e2e8f0"
+            />
+          </div>
         </div>
-        <div className="col-span-4 p-5">
+        <div className="col-span-12 min-[910px]:col-span-6 min-[1240px]:col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
               <Skeleton segment={languages} />
@@ -59,17 +61,19 @@ const ModularTree: React.FC = () => {
         </div>
 
         {/* Row 2 */}
-        <div className="col-span-4 pl-10 pt-14">
-          <Cubes
-            radius={2}
-            cubeSize={32}
-            maxAngle={180}
-            faceColor="#262626"
-            rippleColor="#86efac"
-            borderStyle="1px dashed #16a34a"
-          />
+        <div className="col-span-4 hidden min-[1700px]:block">
+          <div className="flex justify-center relative right-[70px] top-[50px]">
+            <Cubes
+              radius={2}
+              cubeSize={32}
+              maxAngle={60}
+              faceColor="#262626"
+              rippleColor="#93c5fd"
+              borderStyle="1px dashed #e2e8f0"
+            />
+          </div>
         </div>
-        <div className="col-span-4 p-5">
+        <div className="col-span-12 min-[1240px]:col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
               <Skeleton segment={architecture} />
@@ -83,19 +87,21 @@ const ModularTree: React.FC = () => {
             </CardDescription>
           </Card>
         </div>
-        <div className="col-span-4 pl-10 pt-14">
-          <Cubes
-            radius={2}
-            cubeSize={32}
-            maxAngle={180}
-            faceColor="#262626"
-            rippleColor="#f9a8d4"
-            borderStyle="1px dashed #e11d48"
-          />
+        <div className="col-span-4 hidden min-[1700px]:block">
+          <div className="flex justify-center relative right-[70px] top-[50px]">
+            <Cubes
+              radius={2}
+              cubeSize={32}
+              maxAngle={60}
+              faceColor="#262626"
+              rippleColor="#93c5fd"
+              borderStyle="1px dashed #e2e8f0"
+            />
+          </div>
         </div>
 
         {/* Row 3 */}
-        <div className="col-span-4 p-5">
+        <div className="col-span-12 min-[910px]:col-span-6 min-[1700px]:col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
               <Skeleton segment={uiToolkit} />
@@ -112,17 +118,19 @@ const ModularTree: React.FC = () => {
             </CardDescription>
           </Card>
         </div>
-        <div className="col-span-4 pl-10 pt-14">
-          <Cubes
-            radius={2}
-            cubeSize={32}
-            maxAngle={180}
-            faceColor="#262626"
-            rippleColor="#fdba74"
-            borderStyle="1px dashed #f59e0b"
-          />
+        <div className="col-span-4 hidden min-[1700px]:block">
+          <div className="flex justify-center relative right-[70px] top-[80px]">
+            <Cubes
+              radius={2}
+              cubeSize={32}
+              maxAngle={60}
+              faceColor="#262626"
+              rippleColor="#93c5fd"
+              borderStyle="1px dashed #e2e8f0"
+            />
+          </div>
         </div>
-        <div className="col-span-4 p-5">
+        <div className="col-span-12 min-[910px]:col-span-6 min-[1700px]:col-span-4 p-5">
           <Card>
             <CardSkeletonContainer>
               <Skeleton segment={backendDevops} />

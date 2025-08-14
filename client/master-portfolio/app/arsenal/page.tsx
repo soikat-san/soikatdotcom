@@ -60,7 +60,7 @@ export default function Arsenal() {
               className="planar-gradient-fill cursor-target relative border border-green-400 p-8 rounded-2xl w-[480px] font-semibold text-5xl group"
             >
               <span className="relative z-10 planar-text-progress">
-                Planar View
+                Modular View
               </span>
             </button>
 
@@ -76,7 +76,7 @@ export default function Arsenal() {
         </div>
       )}
       {layers > 0 && (
-        <div className="border border-red-400 p-5">
+        <div className="p-5">
           <div className="flex items-center justify-between mb-2">
             <p className="font-bold text-3xl underline underline-offset-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-indigo-400 hover:bg-clip-text hover:text-transparent">
               {layers === 2 ? "Geometric Skill Tree" : "Modular Skill Tree"}
@@ -94,7 +94,7 @@ export default function Arsenal() {
             </div>
           )}
           {layers === 1 && (
-            <div className="rounded-md overflow-scroll h-[calc(100vh-180px)] bg-transparent">
+            <div className="rounded-md overflow-scroll h-[calc(100vh-150px)] bg-transparent">
               <ModularTree />
             </div>
           )}
