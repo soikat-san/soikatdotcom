@@ -20,13 +20,9 @@ const Hero: React.FC = () => {
     const updateFontDimensions = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setFontDimensions({ size: 32, ltrspace: 1 }); // sm: mobile
-      } else if (width < 768) {
-        setFontDimensions({ size: 48, ltrspace: 2 }); // md: tablet
-      } else if (width < 1024) {
-        setFontDimensions({ size: 64, ltrspace: 3 }); // lg: desktop
+        setFontDimensions({ size: 250, ltrspace: 1 });
       } else {
-        setFontDimensions({ size: 300, ltrspace: 20 }); // xl: large desktop
+        setFontDimensions({ size: 300, ltrspace: 20 });
       }
     };
 
@@ -34,7 +30,7 @@ const Hero: React.FC = () => {
     window.addEventListener("resize", updateFontDimensions);
     return () => window.removeEventListener("resize", updateFontDimensions);
   }, []);
-
+  console.log(fontDimensions, "--fd");
   return (
     <div className="p-5 w-full h-auto bg-white/50 dark:bg-black/50 rounded-xl select-none">
       <ShinyText
@@ -43,7 +39,7 @@ const Hero: React.FC = () => {
         speed={5}
         className="text-4xl mb-4"
       />
-      <div className="relative h-[280px] -mt-10 -ml-2">
+      <div className={`relative h-[${fontDimensions.size}px] -mt-10 -ml-2`}>
         <TextPressure
           text="Soikat"
           flex={true}

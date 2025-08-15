@@ -5,11 +5,11 @@ import Iridescence from "@/src/components/reactbits/Backgrounds/Iridescence/Irid
 const ControlledBrightness: React.FC = () => {
   const { theme } = useTheme();
   const colorGradient: [number, number, number] =
-    theme === "dark" ? [1, 0, 0] : [0, 1, 1];
+    theme === "dark" ? [1, 0, 0.5] : [1, 1, 1];
   return (
     <Iridescence
       color={colorGradient}
-      mouseReact={true}
+      mouseReact={false}
       amplitude={0.1}
       speed={1.0}
     />
