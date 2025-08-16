@@ -1,4 +1,4 @@
-import { iceland } from "@/lib/fonts";
+import { iceland, sora } from "@/lib/fonts";
 import { responseMap } from "@/lib/response.map";
 import ResponseHistory, { HistoryItem } from "../history";
 import { useState, ChangeEvent, KeyboardEvent, useRef, useEffect } from "react";
@@ -18,47 +18,110 @@ const InteractiveShell: React.FC = () => {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter" || isAnimating) return;
-    const cmd = prompt.trim().toLowerCase();
-    if (!cmd) return;
+    if (e.key === "Enter" && prompt === "respawn") {
+      setPrompt("");
+      setHistory([]);
+    } else {
+      const cmd = prompt.trim().toLowerCase();
+      if (!cmd) return;
 
-    // Commands that use TypewriterMultiline (callback system)
-    const callbackCommands = ["bio", "origin"];
-    const usesCallback = callbackCommands.includes(cmd);
+      // Commands that use TypewriterMultiline (callback system)
+      const callbackCommands = ["bio", "origin"];
+      const usesCallback = callbackCommands.includes(cmd);
 
-    const handleAnimationComplete = () => {
-      setIsAnimating(false);
-    };
+      const handleAnimationComplete = () => {
+        setIsAnimating(false);
+      };
 
-    const RespComp = responseMap[cmd];
-    const responseElement = RespComp ? (
-      <RespComp
-        onAnimationComplete={usesCallback ? handleAnimationComplete : undefined}
-      />
-    ) : (
-      <p className="text-xl  text-black dark:text-white typewriter-sequential">
-        Command not found: &quot;{cmd}&quot;
-      </p>
-    );
+      const RespComp = responseMap[cmd];
+      const responseElement = RespComp ? (
+        <RespComp
+          onAnimationComplete={
+            usesCallback ? handleAnimationComplete : undefined
+          }
+        />
+      ) : (
+        <p className="text-xl  text-black dark:text-white typewriter-sequential">
+          Command not found: &quot;{cmd}&quot;
+        </p>
+      );
 
-    setHistory((h) => [...h, { command: cmd, response: responseElement }]);
-    setPrompt("");
-    setIsAnimating(true); // Hide input during animation
-    setUseCallbackSystem(usesCallback); // Set flag for animation detection system
+      setHistory((h) => {
+        const newHistoryItem = {
+          id: `${Date.now()}-${Math.random()}`, // Generate unique ID
+          command: cmd,
+          response: responseElement,
+        };
+        if (h.length < 2) {
+          // If history has less than 2 items, just add the new one
+          return [...h, newHistoryItem];
+        } else {
+          // If history already has 2 items, remove the first one and add the new one
+          return [h[1], newHistoryItem];
+        }
+      });
+      setPrompt("");
+      setIsAnimating(true); // Hide input during animation
+      setUseCallbackSystem(usesCallback); // Set flag for animation detection system
 
-    // For commands without animation (like "command not found"), show input immediately
-    if (!RespComp) {
-      setTimeout(() => setIsAnimating(false), 100);
+      // Force immediate scroll after state update
+      setTimeout(() => {
+        const terminalContainer = document.getElementById("terminal-shell");
+        if (terminalContainer) {
+          terminalContainer.scrollTop = terminalContainer.scrollHeight;
+        }
+      }, 0);
+
+      // For commands without animation (like "command not found"), show input immediately
+      if (!RespComp) {
+        setTimeout(() => setIsAnimating(false), 100);
+      }
     }
   };
-
+  // console.log(history, "--");
   // Auto-scroll to keep input field visible when history updates
   useEffect(() => {
     const terminalContainer = document.getElementById("terminal-shell");
     if (terminalContainer && inputRef.current) {
-      // Scroll to bottom of terminal container smoothly
-      setTimeout(() => {
+      // Immediately scroll to bottom when new content is added
+      terminalContainer.scrollTop = terminalContainer.scrollHeight;
+
+      // Debounce the scroll function to handle rapid changes
+      let scrollTimeout: NodeJS.Timeout;
+      const debouncedScroll = () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          terminalContainer.scrollTop = terminalContainer.scrollHeight;
+        }, 10);
+      };
+
+      // Also set up a mutation observer to detect DOM changes during animations
+      const observer = new MutationObserver(() => {
+        debouncedScroll();
+      });
+
+      observer.observe(terminalContainer, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
+
+      // Additional scroll after a short delay to handle layout shifts
+      const layoutShiftTimeout = setTimeout(() => {
         terminalContainer.scrollTop = terminalContainer.scrollHeight;
       }, 100);
+
+      // Clean up observer after animation is likely complete
+      const cleanupTimeout = setTimeout(() => {
+        observer.disconnect();
+      }, 10000); // 10 seconds should cover most animations
+
+      return () => {
+        observer.disconnect();
+        clearTimeout(scrollTimeout);
+        clearTimeout(layoutShiftTimeout);
+        clearTimeout(cleanupTimeout);
+      };
     }
   }, [history]);
 
@@ -77,7 +140,10 @@ const InteractiveShell: React.FC = () => {
 
     const scrollToBottom = () => {
       if (!isScrolling) return;
+
+      // Always scroll to bottom during animation
       terminalContainer.scrollTop = terminalContainer.scrollHeight;
+
       animationFrame = requestAnimationFrame(scrollToBottom);
     };
 
@@ -176,23 +242,30 @@ const InteractiveShell: React.FC = () => {
   return (
     <div ref={shellContainerRef}>
       {/* intro text */}
-      <div className={`${iceland.className}`}>
-        <div className="flex items-center">
-          <p className=" text-blue-700 dark:text-amber-500 text-xl mr-7">
-            soikat@Soikatdotcom %
+      {history.length <= 1 && (
+        <div>
+          <div className={`flex items-center ${iceland.className}`}>
+            <p className={` text-blue-700 dark:text-amber-500 text-xl mr-7`}>
+              soikat@shell~%
+            </p>
+            <p className={` italic text-xl text-rose-600 dark:text-lime-500`}>
+              welcome
+            </p>
+          </div>
+          <p
+            className={`${sora.className} text-sm my-2 text-black dark:text-white pl-2 min-[550px]:pl-4`}
+          >
+            Hi, I&apos;m Soikat Chakrabarty, a Software Engineer. Welcome to my
+            Interactive AI Terminal !!
           </p>
-          <p className="italic text-xl text-rose-600 dark:text-lime-500">
-            welcome
+          <p
+            className={`${sora.className} text-sm text-black dark:text-white pl-2 min-[550px]:pl-4`}
+          >
+            Type <strong>&apos;controls&apos;</strong> to familiarize yourself
+            with the commands.
           </p>
         </div>
-        <p className="text-xl text-black dark:text-white pl-4">
-          Hi, I&apos;m Soikat Chakrabarty, a Software Engineer.
-        </p>
-        <p className="text-xl text-black dark:text-white pl-4">
-          Type <strong>&apos;controls&apos;</strong> to familiarize yourself
-          with the commands.
-        </p>
-      </div>
+      )}
 
       {/* response history */}
       <ResponseHistory history={history} />
@@ -201,7 +274,7 @@ const InteractiveShell: React.FC = () => {
       {!isAnimating && (
         <div className={`${iceland.className} mt-2 flex items-center`}>
           <p className="text-blue-700 dark:text-amber-500 text-xl mr-5">
-            soikat@Soikatdotcom %
+            soikat@shell~%
           </p>
           <input
             autoFocus
@@ -212,7 +285,7 @@ const InteractiveShell: React.FC = () => {
             onKeyDown={handleKeyDown}
             onBlur={() => inputRef.current?.focus()}
             placeholder="what would you like to know?"
-            className="w-96 italic text-xl text-rose-600 dark:text-lime-500 border-0 p-2 outline-none focus:ring-0 focus:border-0 bg-transparent"
+            className="w-96 italic text-xl text-red-600 dark:text-lime-500 border-0 p-2 outline-none focus:ring-0 focus:border-0 bg-transparent"
           />
         </div>
       )}

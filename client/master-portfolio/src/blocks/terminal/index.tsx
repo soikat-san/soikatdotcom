@@ -12,12 +12,13 @@ const InteractiveTerminal: React.FC = () => {
         soikat.sh
       </p>
       <div className="border border-blue-700 dark:border-amber-500" />
-      <div className="py-2 h-[400px] grid grid-cols-12">
-        <div className="col-span-4 overflow-scroll border border-t-0 border-b-0 border-l-0 border-r-2 border-r-blue-700 dark:border-r-amber-500">
+      <div className="py-2 grid grid-cols-12 min-[700px]:h-[calc(70dvh-250px)]  min-[550px]:h-[calc(70dvh-200px)] h-[calc(100dvh-250px)]">
+        <div className="hidden min-[1050px]:block col-span-1 overflow-scroll border-b-0 border-r-2 border-blue-700 dark:border-amber-500">
           <Commands />
         </div>
+        {/* h-[calc(75vh-110px)] */}
         <div
-          className="pl-5 col-span-8 overflow-auto max-h-[400px]"
+          className="min-[1050px]:pl-5 col-span-12 min-[1050px]:col-span-11 overflow-scroll scrollbar-hide min-[550px]:max-h-[400px]"
           id="terminal-shell"
         >
           <InteractiveShell />

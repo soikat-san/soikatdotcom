@@ -14,7 +14,10 @@ const ControlsResponse: React.FC<ResponseComponentProps> = () => {
 
       <div className="grid grid-cols-12">
         {commands.map((cmd, idx) => (
-          <div key={idx} className="col-span-6 flex items-center pb-2">
+          <div
+            key={idx}
+            className="col-span-12 min-[550px]:col-span-6 flex items-center pb-2"
+          >
             <div
               className="w-2 h-2 rounded-full bg-black dark:bg-white mr-2 bullet-fade-in"
               style={{ animationDelay: `${1 + idx * 0.3}s` }}

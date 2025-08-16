@@ -3,7 +3,7 @@ export const commands = [
   { key: "origin", value: "where I am from" },
   { key: "bio", value: "learn about me" },
   { key: "quests", value: "my personal projects" }, // TODO
-  { key: "arsenal", value: "explore my skill tree" }, // TODO
+  { key: "arsenal", value: "explore my skill tree" },
   { key: "campaigns", value: "my work experience" }, // TODO
   { key: "codex", value: "executes sudo" },
   { key: "trophies", value: "my certifications" }, // TODO
@@ -11,5 +11,5 @@ export const commands = [
   { key: "dossier", value: "check out my resume" }, // TODO
   { key: "letsjam", value: "play music" }, // TODO
   { key: "jamover", value: "pause music" }, // TODO
-  { key: "respawn", value: "clear terminal" }, // TODO
+  { key: "respawn", value: "clear terminal" },
 ];

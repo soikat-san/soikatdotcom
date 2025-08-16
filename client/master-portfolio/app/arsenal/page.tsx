@@ -10,7 +10,7 @@ import RotatingText from "@/src/components/reactbits/TextAnimations/RotatingText
 import ModularTree from "@/src/blocks/modular";
 
 export default function Arsenal() {
-  const [layers, setLayers] = useState(1);
+  const [layers, setLayers] = useState(0);
 
   const reset = (): void => {
     setLayers(0);
