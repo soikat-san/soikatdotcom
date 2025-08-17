@@ -18,7 +18,7 @@ const InteractiveTerminal: React.FC = () => {
         </div>
         {/* h-[calc(75vh-110px)] */}
         <div
-          className="min-[1050px]:pl-5 col-span-12 min-[1050px]:col-span-11 overflow-scroll scrollbar-hide min-[550px]:max-h-[400px]"
+          className="min-[1050px]:pl-5 col-span-12 min-[1050px]:col-span-11 overflow-y-scroll scrollbar-hide min-[550px]:max-h-[400px]"
           id="terminal-shell"
         >
           <InteractiveShell />

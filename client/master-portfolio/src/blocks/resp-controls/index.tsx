@@ -1,16 +1,16 @@
 import { sora } from "@/lib/fonts";
 import { commands } from "@/lib/prompts";
 import { ResponseComponentProps } from "@/lib/response.map";
+import { TypewriterMultiline } from "@/src/components/ui/typewriter-multiline";
 
 const ControlsResponse: React.FC<ResponseComponentProps> = () => {
   return (
     <div className={`${sora.className} flex flex-col`}>
-      <p
-        style={{ animationDelay: "0s" }}
-        className="text-xl py-2  text-black dark:text-white typewriter-sequential"
-      >
-        Available commands are as follows:
-      </p>
+      <TypewriterMultiline
+        text={"Available commands are as follows:"}
+        startDelay={0}
+        className={`text-xl py-2  text-black dark:text-white`}
+      />
 
       <div className="grid grid-cols-12">
         {commands.map((cmd, idx) => (
