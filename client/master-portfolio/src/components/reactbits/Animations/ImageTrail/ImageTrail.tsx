@@ -2,7 +2,7 @@
 	Installed from https://reactbits.dev/ts/tailwind/
 */
 
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
 function lerp(a: number, b: number, n: number): number {
@@ -1234,7 +1234,7 @@ interface ImageTrailProps {
 export default function ImageTrail({
   items = [],
   variant = 1,
-}: ImageTrailProps): JSX.Element {
+}: ImageTrailProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
