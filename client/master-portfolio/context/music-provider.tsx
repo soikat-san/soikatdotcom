@@ -12,6 +12,8 @@ import { playlist } from "@/lib/playlist";
 
 interface MusicContextType {
   isPlaying: boolean;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
+  analyserRef: React.RefObject<AnalyserNode | null>;
   currentSong: string | null;
   play: (url?: string) => void;
   pause: () => void;
@@ -31,12 +33,20 @@ export const useMusicPlayer = () => {
 
 export const MusicProvider = ({ children }: { children: ReactNode }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [currentSong, setCurrentSong] = useState<string | null>(null);
 
-  const play = (url?: string) => {
+  const play = async (url?: string) => {
     if (!audioRef.current) return;
+
+    // Resume context if needed (important for browser autoplay restrictions)
+    if (audioCtxRef.current?.state === "suspended") {
+      await audioCtxRef.current.resume();
+    }
 
     if (url && url !== currentSong) {
       audioRef.current.src = url;
@@ -57,11 +67,7 @@ export const MusicProvider = ({ children }: { children: ReactNode }) => {
 
   const toggle = () => {
     if (!audioRef.current) return;
-    if (isPlaying) {
-      pause();
-    } else {
-      play();
-    }
+    isPlaying ? pause() : play();
   };
 
   const stop = () => {
@@ -76,12 +82,27 @@ export const MusicProvider = ({ children }: { children: ReactNode }) => {
       audioRef.current = new Audio();
     }
 
+    if (!audioCtxRef.current) {
+      audioCtxRef.current = new AudioContext();
+    }
+
     const audio = audioRef.current;
+    const audioCtx = audioCtxRef.current;
+
+    // Only create analyser and source once
+    if (!analyserRef.current) {
+      const analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 64;
+      analyserRef.current = analyser;
+
+      const source = audioCtx.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+    }
 
     const handleEnded = () => {
       const nextIndex = (currentTrackIndex + 1) % playlist.length;
       const nextTrack = playlist[nextIndex];
-      console.log(nextTrack, "--");
       setCurrentTrackIndex(nextIndex);
       setCurrentSong(nextTrack.url);
 
@@ -102,6 +123,8 @@ export const MusicProvider = ({ children }: { children: ReactNode }) => {
     <MusicContext.Provider
       value={{
         isPlaying,
+        audioRef,
+        analyserRef,
         currentSong,
         play,
         pause,
