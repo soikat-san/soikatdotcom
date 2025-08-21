@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Docked from "@/src/blocks/dock";
+import Jukebox from "@/src/blocks/jukebox";
 import HydrationWrapper from "@/lib/hydration";
 import Toggle from "@/src/components/theme/toggle";
 import { ThemeProvider } from "@/src/components/theme/theme";
@@ -35,7 +36,7 @@ export default function RootLayout({
                   <Docked />
                 </div>
                 {children}
-                {/* <MusicPlayer /> */}
+                <Jukebox />
               </HydrationWrapper>
             </ThemeProvider>
           </div>
