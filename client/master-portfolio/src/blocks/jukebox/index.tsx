@@ -1,6 +1,7 @@
 "use client";
-import { useTheme } from "next-themes";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import girldj from "@/public/girldj.gif";
 import { playlist } from "@/lib/playlist";
 import { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ import GradientText from "@/src/components/reactbits/TextAnimations/GradientText
 
 const Jukebox: React.FC = () => {
   const { theme } = useTheme();
+  const pathname = usePathname();
   const [song, setSong] = useState<string>("");
   const { isPlaying, analyserRef, currentSong } = useMusicPlayer();
 
@@ -26,14 +28,21 @@ const Jukebox: React.FC = () => {
     }
   };
 
+  const topStyle =
+    pathname === "/"
+      ? "top-20 min-[550px]:top-[275px] min-[640px]:top-80"
+      : "top-2";
+
   return (
-    <div className="absolute top-2 right-2 z-[9999] flex flex-row-reverse">
+    <div
+      className={`absolute ${topStyle} right-2 z-[9999] flex flex-row-reverse`}
+    >
       {isPlaying && (
         <Image src={girldj.src} alt="girl_dj" width={75} height={75} />
       )}
-      <div>
+      <div className="hidden min-[640px]:block">
         <Equalizer analyserRef={analyserRef} theme={theme} />
-        {/*<p className="text-red-400">{song}</p>*/}
+
         <GradientText
           showBorder={true}
           animationSpeed={5}
