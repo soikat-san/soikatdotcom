@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import girldj from "@/public/girldj.gif";
 import { playlist } from "@/lib/playlist";
 import { useEffect, useState } from "react";
-import { useMusicPlayer } from "@/context/music-provider";
+import { usePathname } from "next/navigation";
 import { Equalizer } from "@/src/components/equalizer";
+import { useMusicPlayer } from "@/context/music-provider";
 import GradientText from "@/src/components/reactbits/TextAnimations/GradientText/GradientText";
 
 const Jukebox: React.FC = () => {
@@ -34,25 +34,28 @@ const Jukebox: React.FC = () => {
       : "top-2";
 
   return (
-    <div
-      className={`absolute ${topStyle} right-2 z-[9999] flex flex-row-reverse`}
-    >
+    <>
       {isPlaying && (
-        <Image src={girldj.src} alt="girl_dj" width={75} height={75} />
-      )}
-      <div className="hidden min-[640px]:block">
-        <Equalizer analyserRef={analyserRef} theme={theme} />
-
-        <GradientText
-          showBorder={true}
-          animationSpeed={5}
-          className="px-2 mt-1"
-          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+        <div
+          className={`absolute ${topStyle} right-2 z-[9999] flex flex-row-reverse`}
         >
-          {song}
-        </GradientText>
-      </div>
-    </div>
+          <Image src={girldj.src} alt="girl_dj" width={75} height={75} />
+
+          <div className="hidden min-[640px]:block">
+            <Equalizer analyserRef={analyserRef} theme={theme} />
+
+            <GradientText
+              showBorder={true}
+              animationSpeed={5}
+              className="px-2 mt-1"
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            >
+              {song}
+            </GradientText>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -4,8 +4,8 @@ import Docked from "@/src/blocks/dock";
 import Jukebox from "@/src/blocks/jukebox";
 import HydrationWrapper from "@/lib/hydration";
 import Toggle from "@/src/components/theme/toggle";
-import { ThemeProvider } from "@/src/components/theme/theme";
 import { MusicProvider } from "@/context/music-provider";
+import { ThemeProvider } from "@/src/components/theme/theme";
 
 export const metadata: Metadata = {
   title: "soikat-san",
