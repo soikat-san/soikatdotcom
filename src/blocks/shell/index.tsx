@@ -1,16 +1,40 @@
 import { iceland, sora } from "@/lib/fonts";
 import { responseMap } from "@/lib/response.map";
 import ResponseHistory, { HistoryItem } from "../history";
-import { useState, ChangeEvent, KeyboardEvent, useRef, useEffect } from "react";
+import {
+  useState,
+  ChangeEvent,
+  KeyboardEvent,
+  useRef,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from "react";
+import { useBackground } from "@/src/components/theme/bgtheme";
+import { useTheme } from "next-themes";
 
-const InteractiveShell: React.FC = () => {
+interface CommandsProps {
+  prompt: string;
+  setPrompt: Dispatch<SetStateAction<string>>;
+}
+
+const InteractiveShell: React.FC<CommandsProps> = ({ prompt, setPrompt }) => {
+  const { theme } = useTheme();
+  const { background } = useBackground();
   const inputRef = useRef<HTMLInputElement>(null);
   const shellContainerRef = useRef<HTMLDivElement>(null);
 
-  const [prompt, setPrompt] = useState("");
+  const isLumen = "text-neutral-300";
+  const isEther = theme === "dark" ? "text-neutral-300" : "text-zinc-900";
+  const textColor = background === "lumen" ? isLumen : isEther;
+
   const [isAnimating, setIsAnimating] = useState(false);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [useCallbackSystem, setUseCallbackSystem] = useState(false);
+
+  const isLumenShell = theme === "dark" ? "text-zinc-600" : "text-zinc-400";
+  const isEtherShell = theme === "dark" ? "text-amber-500" : "text-neutral-500";
+  const shellColor = background === "lumen" ? isLumenShell : isEtherShell;
 
   const handlePrompt = (e: ChangeEvent<HTMLInputElement>) => {
     setPrompt(e.target.value);
@@ -232,24 +256,24 @@ const InteractiveShell: React.FC = () => {
       {history.length <= 1 && (
         <div>
           <div className={`flex items-center ${iceland.className}`}>
-            <p className={` text-blue-700 dark:text-amber-500 text-xl mr-7`}>
-              soikat@shell~%
-            </p>
-            <p className={` italic text-xl text-rose-600 dark:text-lime-500`}>
+            <p className={` ${shellColor} text-xl mr-7`}>soikat@shell~%</p>
+            <p className={` italic text-xl text-yellow-800 dark:text-lime-500`}>
               welcome
             </p>
           </div>
           <p
-            className={`${sora.className} text-sm my-2 text-black dark:text-white pl-2 min-[550px]:pl-4`}
+            className={`${sora.className} ${textColor} text-sm my-2 pl-2 min-[550px]:pl-4`}
           >
-            Hi, I&apos;m Soikat Chakrabarty, a Software Engineer. Welcome to my
-            Interactive AI Terminal !!
+            Hi, I&apos;m Soikat Chakrabarty, a Senior React & React Native
+            Engineer.
+            <br />I build high-performance web & mobile experiences for global
+            remote teams.
           </p>
           <p
-            className={`${sora.className} text-sm text-black dark:text-white pl-2 min-[550px]:pl-4`}
+            className={`${sora.className} ${textColor} text-sm pl-2 min-[550px]:pl-4`}
           >
-            Type <strong>&apos;controls&apos;</strong> to familiarize yourself
-            with the commands.
+            Welcome to my AI-powered Interactive Terminal — type{" "}
+            <strong>&apos;controls&apos;</strong> to begin.
           </p>
         </div>
       )}
@@ -260,9 +284,7 @@ const InteractiveShell: React.FC = () => {
       {/* interactive input - only show when not animating */}
       {!isAnimating && (
         <div className={`${iceland.className} mt-2 flex items-center`}>
-          <p className="text-blue-700 dark:text-amber-500 text-xl mr-5">
-            soikat@shell~%
-          </p>
+          <p className={`${shellColor} text-xl mr-5`}>soikat@shell~%</p>
           <input
             autoFocus
             type="text"
@@ -272,7 +294,7 @@ const InteractiveShell: React.FC = () => {
             onKeyDown={handleKeyDown}
             onBlur={() => inputRef.current?.focus()}
             placeholder="type your prompt..."
-            className="w-96 italic text-xl text-red-600 dark:text-lime-500 border-0 p-2 outline-none focus:ring-0 focus:border-0 bg-transparent"
+            className="w-96 italic text-xl text-yellow-800 dark:text-lime-500 border-0 p-2 outline-none focus:ring-0 focus:border-0 bg-transparent"
           />
         </div>
       )}

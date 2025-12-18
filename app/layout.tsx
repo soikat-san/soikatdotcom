@@ -6,6 +6,7 @@ import HydrationWrapper from "@/lib/hydration";
 import Toggle from "@/src/components/theme/toggle";
 import { MusicProvider } from "@/context/music-provider";
 import { ThemeProvider } from "@/src/components/theme/theme";
+import { BackgroundProvider } from "@/src/components/theme/bgtheme";
 
 export const metadata: Metadata = {
   title: "soikat-san",
@@ -22,23 +23,25 @@ export default function RootLayout({
       <body className="antialiased">
         <MusicProvider>
           <div className="max-w-[1920px] m-auto relative">
-            <ThemeProvider
-              enableSystem
-              attribute="class"
-              defaultTheme="system"
-              disableTransitionOnChange
-            >
-              <HydrationWrapper>
-                <div className="absolute top-2 right-4 z-[9999]">
-                  <Toggle />
-                </div>
-                <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[9998] max-w-[1920px]">
-                  <Docked />
-                </div>
-                {children}
-                <Jukebox />
-              </HydrationWrapper>
-            </ThemeProvider>
+            <BackgroundProvider>
+              <ThemeProvider
+                enableSystem
+                attribute="class"
+                defaultTheme="system"
+                disableTransitionOnChange
+              >
+                <HydrationWrapper>
+                  <div className="absolute top-2 right-4 z-[9999]">
+                    <Toggle />
+                  </div>
+                  <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-[9998] max-w-[1920px]">
+                    <Docked />
+                  </div>
+                  {children}
+                  <Jukebox />
+                </HydrationWrapper>
+              </ThemeProvider>
+            </BackgroundProvider>
           </div>
         </MusicProvider>
       </body>

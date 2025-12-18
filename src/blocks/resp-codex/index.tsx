@@ -5,7 +5,7 @@ import { TypewriterMultiline } from "@/src/components/ui/typewriter-multiline";
 const CodexResponse: React.FC<ResponseComponentProps> = ({
   onAnimationComplete,
 }) => {
-  const codex = `Hi, I'm Soikat Chakrabarty, a Software Engineer.`;
+  const codex = `Hi, I'm Soikat Chakrabarty, a Software React & React Native Engineer.`;
   return (
     <div className={`flex flex-col`}>
       <TypewriterMultiline

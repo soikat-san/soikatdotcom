@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { ResponseComponentProps } from "@/lib/response.map";
 import { TypewriterMultiline } from "@/src/components/ui/typewriter-multiline";
 
-const ArsenalResponse: React.FC<ResponseComponentProps> = ({
+const CampaignResponse: React.FC<ResponseComponentProps> = ({
   onAnimationComplete,
 }) => {
   const pitch =
-    "Here’s a visual breakdown of the tools, languages, and frameworks I’ve mastered over time. From core frontend technologies to cloud integrations and testing frameworks — this is the evolving stack I use to build, scale, and ship robust web and mobile applications.";
-  const link = "Explore the full tech stack here.";
+    "Over the years, I’ve contributed to high-scale platforms, led key initiatives, and delivered mission-critical features across web and mobile. Here’s a breakdown of the impact I’ve created along the way.";
+  const link = "See the full timeline of my experience.";
 
   const [pitchComplete, setPitchComplete] = useState(false);
   const [linkComplete, setLikComplete] = useState(false);
@@ -30,12 +30,12 @@ const ArsenalResponse: React.FC<ResponseComponentProps> = ({
         className={`${sora.className} text-sm py-2 text-black dark:text-white`}
       />
       {pitchComplete && (
-        <Link href={"/arsenal"}>
+        <Link href={"/timeline"}>
           <TypewriterMultiline
             text={link}
             startDelay={0}
             onComplete={() => setLikComplete(true)}
-            className={`${sora.className} text-sm underline underline-offset-2 py-2  text-fuchsia-500 dark:text-yellow-50`}
+            className={`${sora.className} text-sm underline underline-offset-2 py-2 text-fuchsia-500 dark:text-yellow-50`}
           />
         </Link>
       )}
@@ -43,4 +43,4 @@ const ArsenalResponse: React.FC<ResponseComponentProps> = ({
   );
 };
 
-export default ArsenalResponse;
+export default CampaignResponse;

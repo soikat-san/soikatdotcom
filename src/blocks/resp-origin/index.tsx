@@ -5,14 +5,14 @@ import { TypewriterMultiline } from "@/src/components/ui/typewriter-multiline";
 const OriginResponse: React.FC<ResponseComponentProps> = ({
   onAnimationComplete,
 }) => {
-  const words = `I was born in Jamshedpur — India’s first planned industrial city. Unlike
-  chaotic metros, Jamshedpur has structure, self-sufficiency, and
-  purpose-built systems — values that quietly shaped how I think about
-  engineering. It’s a city that taught me discipline, grit, and the
-  importance of building things that last. I did my schooling there before
-  moving to Noida to pursue a B.Tech in Computer Science & Engineering at Amity
-  University, where I discovered my passion for clean code, scalable
-  systems, and thoughtful product development.`;
+  const words = `
+  Origin: Jamshedpur — India’s first engineered city.
+
+  Effect: a lifelong bias for structure, clarity, and systems that endure.
+
+  I later moved to Noida to study Computer Science at Amity University, where that curiosity turned into a passion for clean architecture, scalable engineering, and building products with intent.
+  `;
+
   return (
     <div className={`flex flex-col`}>
       <TypewriterMultiline

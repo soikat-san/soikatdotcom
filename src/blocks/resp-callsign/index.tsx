@@ -8,7 +8,7 @@ const CallsignResponse: React.FC<ResponseComponentProps> = () => {
     <div className={`${sora.className} flex flex-col`}>
       <TypewriterMultiline
         text={
-          "Let’s connect — I’m always open to meaningful projects, collaborations, or a quick hello."
+          "I’m open to impactful opportunities — full-time roles, high-leverage projects, or collaborations where thoughtful engineering matters. Always happy to connect.."
         }
         startDelay={0}
         className={`text-sm py-2 text-black dark:text-white`}
@@ -30,7 +30,7 @@ const CallsignResponse: React.FC<ResponseComponentProps> = () => {
           rel="noopener noreferer"
           style={{ animationDelay: "2s" }}
           href={`https://www.linkedin.com/in/soikat11/`}
-          className="pl-5 underline underline-offset-2 text-sm py-2  text-fuchsia-500 typewriter-sequential"
+          className="pl-5 underline underline-offset-2 text-sm py-2  text-fuchsia-500 dark:text-yellow-50 typewriter-sequential"
         >
           /in/soikat11
         </Link>
@@ -51,7 +51,7 @@ const CallsignResponse: React.FC<ResponseComponentProps> = () => {
           rel="noopener noreferer"
           style={{ animationDelay: "3.25s" }}
           href={`https://github.com/soikat-san`}
-          className="pl-7 underline underline-offset-2 text-sm py-2  text-fuchsia-500 typewriter-sequential"
+          className="pl-7 underline underline-offset-2 text-sm py-2  text-fuchsia-500 dark:text-yellow-50 typewriter-sequential"
         >
           @soikat-san
         </Link>
@@ -69,7 +69,7 @@ const CallsignResponse: React.FC<ResponseComponentProps> = () => {
         </p>
         <p
           style={{ animationDelay: "4s" }}
-          className="pl-10 underline underline-offset-2 text-sm py-2  text-fuchsia-500 typewriter-sequential"
+          className="pl-10 underline underline-offset-2 text-sm py-2  text-fuchsia-500 dark:text-yellow-50 typewriter-sequential"
         >
           {/* TODO - add a domain email */}
           {/* TODO - add copy to clipboard */}

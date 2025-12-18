@@ -4,9 +4,14 @@ import InteractiveTerminal from "../terminal";
 import React, { useEffect, useState } from "react";
 import ShinyText from "@/src/components/reactbits/TextAnimations/ShinyText/ShinyText";
 import TextPressure from "@/src/components/reactbits/TextAnimations/TextPressure/TextPressure";
+import { useBackground } from "@/src/components/theme/bgtheme";
 
 const Hero: React.FC = () => {
   const { theme } = useTheme();
+  const { background } = useBackground();
+  const isEther = theme === "dark" ? "dark:bg-black/30" : "bg-white/30";
+  const isLumen = theme === "dark" ? "dark:bg-black/30" : "bg-white/15";
+  const overlay = background === "lumen" ? isLumen : isEther;
   const textColor = theme === "dark" ? "#FFF" : "#000";
   const textBorderColor = theme === "dark" ? "#1d4ed8" : "#FFD700";
 
@@ -32,7 +37,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-5 w-full h-auto bg-white/50 dark:bg-black/50 rounded-xl select-none">
+    <div className={`p-5 w-full h-auto ${overlay} rounded-xl select-none`}>
       <div className="min-[550px]:block hidden">
         <ShinyText
           speed={5}

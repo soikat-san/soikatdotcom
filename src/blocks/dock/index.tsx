@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { Home, Route, Snowflake } from "lucide-react";
 import Dock from "@/src/components/reactbits/Components/Dock/Dock";
-import { Home, Route, Snowflake, NotebookPen } from "lucide-react";
 
 const Docked: React.FC = () => {
   const router = useRouter();
@@ -27,12 +27,6 @@ const Docked: React.FC = () => {
       icon: <Snowflake size={24} color="white" />,
       label: "Arsenal",
       onClick: () => handleNavigation("arsenal"),
-      className: "cursor-pointer !bg-gray-400 dark:!bg-gray-800 !border-0",
-    },
-    {
-      icon: <NotebookPen size={24} color="white" />,
-      label: "Blog",
-      onClick: () => handleNavigation("blog"),
       className: "cursor-pointer !bg-gray-400 dark:!bg-gray-800 !border-0",
     },
   ];
